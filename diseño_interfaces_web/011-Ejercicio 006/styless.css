@@ -1,0 +1,78 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Encabezado */
+header {
+  background: #f6c6a5;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Navegación */
+nav {
+  background: #b2d8e6;
+  width: 20%;
+  float: left;
+  padding: 20px;
+  min-height: 300px;
+}
+
+/* Sección principal */
+.main {
+  background: #d9d9d9;
+  margin-left: 20%;
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Artículo */
+article {
+  background: #a9c4e8;
+  width: 60%;
+  float: left;
+  padding: 20px;
+  min-height: 200px;
+}
+
+/* Asides principales */
+.aside1,
+.aside2 {
+  background: #e6a5a5;
+  width: 30%;
+  float: right;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+/* Sección extra */
+.extra {
+  background: #d9d9d9;
+  margin-left: 20%;
+  padding: 20px;
+  overflow: hidden;
+  clear: both;
+}
+
+/* Aside extra */
+.extra .aside3 {
+  background: #e6a5a5;
+  width: 30%;
+  float: right;
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  background: #cddbb5;
+  text-align: center;
+  padding: 20px;
+  clear: both;
+}
