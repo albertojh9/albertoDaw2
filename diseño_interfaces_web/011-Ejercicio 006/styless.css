@@ -7,6 +7,15 @@
 
 body {
   font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+/* Clearfix para el layout principal */
+.container-clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Encabezado */
@@ -14,6 +23,8 @@ header {
   background: #f6c6a5;
   padding: 20px;
   text-align: center;
+  margin-bottom: 0;
+  border-bottom: none;
 }
 
 /* Navegación */
@@ -31,6 +42,8 @@ nav {
   margin-left: 20%;
   padding: 20px;
   overflow: hidden;
+  margin-top: 0;
+  border: none;
 }
 
 /* Artículo */
@@ -59,6 +72,8 @@ article {
   padding: 20px;
   overflow: hidden;
   clear: both;
+  margin-top: 0;
+  border: none;
 }
 
 /* Aside extra */
@@ -75,4 +90,6 @@ footer {
   text-align: center;
   padding: 20px;
   clear: both;
+  margin-top: auto;
+  width: 100%;
 }
