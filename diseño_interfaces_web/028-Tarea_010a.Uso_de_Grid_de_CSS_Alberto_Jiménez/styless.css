@@ -1,0 +1,54 @@
+/* Reset básico */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff; /* fondo blanco para que los gaps sean visibles */
+  color: #333;
+  min-height: 100%;
+  overflow-x: hidden; /* evitar scroll horizontal */
+}
+
+/* Grid: 4 columnas x 3 filas, orden por columnas (column-major) */
+.grid-container {
+  width: 100%;
+  height: 100vh; /* forzar ajuste al viewport para evitar scroll vertical */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px; /* hueco entre recuadros para que se vea el fondo blanco */
+  padding: 6px;
+  box-sizing: border-box;
+  background: #ffffff;
+  grid-auto-flow: column; /* coloca 1,2,3 en la primera columna, etc. */
+  align-items: stretch; /* asegurarse que las celdas ocupen la altura de la fila */
+  justify-items: stretch; /* asegurarse que las celdas ocupen el ancho de la columna */
+  grid-auto-rows: 1fr; /* filas de igual altura */
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  /* ocupar todo el área de la celda */
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  transition: transform .12s ease, box-shadow .12s ease;
+  color: #fff;
+  /* tamaño de fuente responsivo: que dependa tanto de vw como de vh para evitar overflow vertical */
+  font-size: clamp(12px, min(4.5vw, 4.5vh), 40px);
+}
+
+/* celdas impares: negro, pares: gris */
+.grid-item:nth-child(odd) { background: #000; }
+.grid-item:nth-child(even) { background: #7f8c8d; }
+
+
+@media (max-width: 600px) {
+  .grid-container { gap: 6px; padding: 4px; }
+  .grid-item { font-size: clamp(10px, min(8vw, 8vh), 26px); }
+}

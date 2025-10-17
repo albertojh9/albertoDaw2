@@ -1,0 +1,203 @@
+:root{
+	/* Colores y valores reutilizables */
+	--accent:#2b6cb0;     
+	--muted:#6b7280;      
+	--bg:#f7fafc;        
+	--paper-bg: #fff;     
+	--max-width: 1000px;  /* ancho máximo del contenido */
+	--nav-width: 220px;   /* ancho de la columna de navegación */
+}
+/* Hacemos que todos los elementos usen box-sizing: border-box para facilitar el cálculo de anchos */
+*{box-sizing:border-box}
+
+/* Body: tipografía base, padding exterior y centrado del contenedor */
+body{
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin:0;
+	background:var(--bg);
+	color:#111827;
+	padding:20px;
+	/* Usamos grid para colocar nav a la izquierda y main a la derecha */
+	display:grid;
+	grid-template-columns: var(--nav-width) 1fr;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas:
+		"header header"
+		"nav main"
+		"footer footer";
+	gap:20px;
+}
+
+/* Encabezado del sitio */
+.site-header{
+	text-align:center;
+	margin-bottom:16px; /* separación respecto al resto */
+	grid-area: header;
+}
+.site-header h1{
+	margin:0;
+	font-size:1.8rem;
+	color:var(--accent); /* título con color de acento */
+}
+.tagline{
+	color:var(--muted);
+	margin-top:4px; /* línea secundaria debajo del título */
+}
+
+/* Navegación principal colocada en columna lateral */
+.main-nav{
+	grid-area: nav; /* sitúa la nav en la columna izquierda del body grid */
+}
+.main-nav ul{
+	list-style:none;
+	padding:0;
+	display:block;         /* lista vertical en la columna */
+	margin:0;
+}
+.main-nav li{margin:8px 0}
+.main-nav a{
+	display:block;
+	color:#111827;
+	background:none;
+	padding:8px 10px;
+	border-radius:6px;
+	text-decoration:none;
+}
+.main-nav a:hover{background:rgba(0,0,0,0.04)}
+
+/* Grid principal de contenido en pantalla */
+.layout{
+	/* Área principal en la columna derecha: artículo + sección secundaria */
+	grid-area: main;
+	max-width:var(--max-width);
+	display:grid;                       /* grid con columna principal + sidebar */
+	grid-template-columns:1fr 300px;    /* artículo | sección secundaria */
+	gap:24px;                           /* separación entre artículo y sidebar */
+	width:100%;
+	align-items:start;
+}
+
+/* Estilo del artículo / contenido */
+.content{
+	background:#fff;
+	padding:18px;
+	border-radius:8px;
+	box-shadow:0 2px 6px rgba(0,0,0,0.06); /* sombra ligera en pantalla */
+}
+
+/* Barra lateral */
+.sidebar{
+	background:#fff;
+	padding:16px;
+	border-radius:8px;
+	box-shadow:0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Botón principal */
+.call-to-action{
+	background:var(--accent);
+	color:white;
+	border:none;
+	padding:10px 16px;
+	border-radius:6px;
+	cursor:pointer;
+}
+
+/* Pie de página */
+.site-footer{
+	text-align:center;
+	color:var(--muted);
+	margin-top:18px;
+}
+
+/* Elementos marcados para no imprimir en algunos diseños (aún visibles si se fuerza) */
+.no-print{
+	display:inline;
+}
+
+/* --------------------------------------------------
+   Reglas responsivas (pantalla)
+   - En pantallas estrechas, pasamos a una sola columna
+   - La navegación puede ajustarse a varias líneas
+-------------------------------------------------- */
+@media screen and (max-width:800px){
+	/* En pantallas pequeñas cambiamos el grid del body a una sola columna:
+	   header -> nav -> main -> footer (la navegación pasa arriba) */
+	body{
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			"header"
+			"nav"
+			"main"
+			"footer";
+	}
+
+	/* El área principal pasa a una única columna (el sidebar bajará debajo del contenido) */
+	.layout{grid-template-columns:1fr;}
+
+	/* Navegación horizontal compacta en móvil */
+	.main-nav ul{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:0;margin:6px 0}
+	.main-nav a{background:var(--accent);color:var(--paper-bg);padding:6px 10px;border-radius:6px}
+}
+
+/* ===== Estilos para impresión ===== */
+
+/* --------------------------------------------------
+   Estilos específicos para impresión (@media print)   
+-------------------------------------------------- */
+@media print{
+	/* Fondo de papel y color de texto para impresión */
+	body{background:var(--paper-bg);padding:0;color:#000}
+
+	/* Encabezado adaptado a papel (línea separadora) */
+	.site-header{border-bottom:2px solid #000;padding-bottom:8px;margin-bottom:12px}
+	.site-header h1{color:#000}
+
+	/* Forzamos que estos elementos estén visibles en la versión impresa */
+	.main-nav, .call-to-action, .sidebar, .no-print{display:block !important}
+
+	/* Layout en columna: apilamos todo con un ancho adecuado para papel */
+	.layout{
+		display:block;
+		width:100%;
+		max-width:780px;
+		margin:0 auto;
+	}
+
+	/* Cada bloque principal se separa verticalmente y evitamos cortes internos */
+	header.site-header, .main-nav, .content, .sidebar, .site-footer{
+		display:block !important;
+		margin:0 0 10mm 0; /* espacio vertical entre secciones en el papel */
+		padding:0; /* quitamos padding extra; el contenido interno puede mantener su propio padding */
+		page-break-inside:avoid; /* evita que el bloque se divida entre páginas */
+	}
+
+	/* Ajustes visuales para impresión: quitar sombras y definir tamaño legible */
+	.content{box-shadow:none;border-radius:0;padding:4mm 0;font-size:11pt}
+	.sidebar{box-shadow:none;border-radius:0;padding:4mm 0}
+
+	/* Navegación adaptada a línea por línea en papel */
+	.main-nav ul{display:block;text-align:left;padding-left:0}
+	.main-nav li{display:block;margin:2mm 0}
+	.main-nav a{background:none;color:#000;padding:0;border-radius:0}
+
+	/* Mostrar el texto del botón como inline-block superficialmente (en impresión los controles pueden comportarse distinto) */
+	.call-to-action{display:inline-block;color:#000;background:none;padding:0;margin-top:4mm}
+
+	/* Mostrar URL de los enlaces para que el lector tenga la referencia en papel */
+	a::after{content: " (" attr(href) ")";color:#000;word-break:break-all}
+
+	/* Evitar cortes indeseados dentro de artículos y controlar viudas/huérfanas */
+	article, .content{page-break-inside:avoid}
+	h2, p{orphans:3;widows:3}
+
+	/* Imágenes deben escalar al ancho de la página */
+	img{max-width:100%;height:auto}
+
+	/* Pie de página simple y con separación superior */
+	.site-footer{display:block;margin-top:20px;border-top:1px solid #999;padding-top:6px}
+}
+
+/* Reglas adicionales para asegurar legibilidad en impresión en navegadores que respetan @media print */
+/* Configuración de página para impresión: márgenes por defecto (se puede cambiar a A4 si se necesita) */
+@page{size: auto; margin:15mm}

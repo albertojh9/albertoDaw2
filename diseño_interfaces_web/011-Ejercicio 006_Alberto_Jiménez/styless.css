@@ -1,0 +1,98 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clearfix para el layout principal */
+.container-clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Encabezado */
+header {
+  background: #f6c6a5;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+/* Navegación */
+nav {
+  background: #b2d8e6;
+  width: 20%;
+  float: left;
+  padding: 20px;
+  min-height: 300px;
+}
+
+/* Sección principal */
+.main {
+  background: #d9d9d9;
+  width: 80%;
+  float: left;
+  padding: 20px;
+  overflow: hidden;
+  margin-top: 0;
+  border: none;
+}
+
+/* Artículo */
+article {
+  background: #a9c4e8;
+  width: 60%;
+  float: left;
+  padding: 20px;
+  min-height: 200px;
+}
+
+/* Asides principales */
+.aside1,
+.aside2 {
+  background: #e6a5a5;
+  width: 40%;
+  float: right;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+/* Sección extra */
+.extra {
+  background: #d9d9d9;
+  width: 80%;
+  float: left;
+  padding: 20px;
+  overflow: hidden;
+  clear: both;
+  margin-top: 0;
+  border: none;
+}
+
+/* Aside extra */
+.aside3 {
+  background: #e6a5a5;
+  width: 40%;
+  float: right;
+  padding: 20px;
+}
+
+/* Footer */
+footer {
+  background: #cddbb5;
+  text-align: center;
+  padding: 20px;
+  clear: both;
+  margin-top: auto;
+  width: 100%;
+}
