@@ -1,0 +1,77 @@
+/* Reset de estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+
+/* Estilos del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif; /* Fuente principal del sitio */
+    height: 100vh; /* Altura completa de la ventana del navegador */
+}
+
+/* Contenedor principal con Grid Layout */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr; /* Sidebar (1 parte) | Content (4 partes) */
+    grid-template-rows: auto 1fr auto; /* Header automático | Content flexible | Footer automático */
+    grid-template-areas:
+        "header header"    /* Header ocupa toda la fila superior */
+        "sidebar content"  /* Sidebar izquierda, content derecha */
+        "footer footer";   /* Footer ocupa toda la fila inferior */
+    height: 100vh; /* Altura completa de la ventana */
+}
+
+/* Cabecera de la página */
+.header {
+    grid-area: header;
+    background-color: #00CED1; /* Color turquesa oscuro */
+    padding: 20px;
+    display: flex;
+    align-items: center;        /* Centrado vertical */
+    justify-content: center;    /* Centrado horizontal */
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+/* Barra lateral izquierda */
+.sidebar {
+    grid-area: sidebar;
+    background-color: #FFFF00; /* Color amarillo */
+    padding: 20px;
+    display: flex;
+    align-items: center;        /* Centrado vertical */
+    justify-content: center;    /* Centrado horizontal */
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+/* Área de contenido principal */
+.content {
+    grid-area: content;
+    background-color: #00FF7F; /* Color verde primavera */
+    padding: 20px;
+    display: flex;
+    align-items: center;        /* Centrado vertical */
+    justify-content: center;    /* Centrado horizontal */
+    font-size: 18px;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+/* Pie de página */
+.footer {
+    grid-area: footer;
+    background-color: #4169E1; /* Color azul real */
+    padding: 20px;
+    display: flex;
+    align-items: center;        /* Centrado vertical */
+    justify-content: center;    /* Centrado horizontal */
+    font-size: 18px;
+    font-weight: bold;
+    color: white;              /* Texto blanco para contraste */
+    border: 2px solid black;
+}
