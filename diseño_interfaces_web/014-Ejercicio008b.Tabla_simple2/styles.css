@@ -1,0 +1,19 @@
+table {
+    border-collapse: separate; /* Permite espacio entre celdas */
+    border-spacing: 3px; /* Espacio blanco reducido entre las celdas */
+    border: 3px solid black; /* Borde negro alrededor de toda la tabla */
+    margin: 20px;
+    padding: 2px; /* Padding interno para reducir espacio entre borde y celdas */
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 8px 12px; /* Padding reducido para mejor ajuste al contenido */
+    text-align: left; /* Texto justificado a la izquierda */
+    width: auto; /* Ancho automático que se ajusta al contenido */
+    height: auto; /* Altura automática que se ajusta al contenido */
+}
+
+th {
+    font-weight: bold;
+}

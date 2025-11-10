@@ -1,0 +1,33 @@
+table {
+    border-collapse: separate; /* Permite espacio entre celdas */
+    border-spacing: 3px; /* Espacio blanco reducido entre las celdas */
+    border: 3px solid black; /* Borde negro alrededor de toda la tabla */
+    margin: 20px;
+    padding: 2px; /* Padding interno para reducir espacio entre borde y celdas */
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 8px 12px; /* Padding reducido para mejor ajuste al contenido */
+    width: auto; /* Ancho automático que se ajusta al contenido */
+    height: auto; /* Altura automática que se ajusta al contenido */
+}
+
+th {
+    font-weight: bold;
+    text-align: center; /* Texto centrado para los headers */
+}
+
+td {
+    text-align: left; /* Texto justificado a la izquierda para las celdas de datos */
+}
+
+/* Celdas con doble de tamaño (3, 4, 6 y 8) */
+.celda3, .celda4, .celda6, .celda8 {
+    font-size: 2em; /* Doble de tamaño */
+}
+
+/* Celda 5 con una unidad más de tamaño */
+.celda5 {
+    font-size: 1.2em; /* Una unidad más de tamaño */
+}

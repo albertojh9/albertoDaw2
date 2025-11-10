@@ -1,0 +1,28 @@
+table {
+    border-collapse: separate; /* Permite espacio entre celdas */
+    border-spacing: 8px; /* Espacio en blanco entre las celdas */
+}
+
+td {
+    border: 2px solid black;
+    padding: 8px 12px; /* Padding ajustado para mejor proporción */
+    text-align: left; /* Texto justificado a la izquierda */
+    font-weight: bold;
+    width: auto; /* Ancho automático que se ajusta al contenido */
+    height: auto; /* Altura automática que se ajusta al contenido */
+    min-width: 80px; /* Ancho mínimo para evitar celdas muy pequeñas */
+}
+
+.rojo {
+    background-color: red;
+    color: black;
+}
+
+.amarillo {
+    background-color: yellow;
+    color: black;
+}
+
+.azul {
+    background-color: blue;
+}

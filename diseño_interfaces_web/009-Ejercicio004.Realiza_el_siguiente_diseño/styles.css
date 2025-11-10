@@ -1,0 +1,68 @@
+/* Reset universal para eliminar márgenes y espaciados por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Incluye padding y border en el cálculo del ancho total */
+}
+
+/* Contenedor principal con CSS Grid Layout */
+body {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr; /* Nav (1 parte) | Main (3 partes) | Aside (1 parte) */
+    grid-template-rows: auto 1fr auto; /* Header automático | Contenido flexible | Footer automático */
+    grid-template-areas:
+        "header header header"    /* Header ocupa toda la primera fila */
+        "nav main aside"          /* Segunda fila: nav, main y aside */
+        "footer footer footer";   /* Footer ocupa toda la tercera fila */
+    height: 100vh; /* Altura completa de la ventana del navegador */
+    gap: 15px; /* Espacio entre las áreas del grid (separación entre apartados) */
+    background-color: #ffffff; /* Color blanco para los huecos entre apartados */
+}
+
+/* Cabecera de la página */
+header {
+    grid-area: header; /* Se posiciona en el área 'header' del grid */
+    background-color: #FF8C00; /* Color naranja oscuro */
+    padding: 20px; /* Espaciado interno */
+    display: flex; /* Flexbox para alineación del contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+/* Barra de navegación lateral izquierda */
+nav {
+    grid-area: nav; /* Se posiciona en el área 'nav' del grid */
+    background-color: #7FFF00; /* Color verde lima */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* Contenido principal de la página */
+main {
+    grid-area: main; /* Se posiciona en el área 'main' del grid */
+    background-color: #F0E68C; /* Color amarillo khaki */
+    padding: 20px; /* Espaciado interno */
+}
+
+/* Barra lateral derecha */
+aside {
+    grid-area: aside; /* Se posiciona en el área 'aside' del grid */
+    background-color: #6495ED; /* Color azul acero */
+    padding: 20px; /* Espaciado interno */
+    margin-right: 30px; /* Espacio adicional solo a la derecha del aside */
+}
+
+/* Pie de página */
+footer {
+    grid-area: footer; /* Se posiciona en el área 'footer' del grid */
+    background-color: #FFB6C1; /* Color rosa claro */
+    padding: 20px; /* Espaciado interno */
+    display: flex; /* Flexbox para alineación del contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+/* Estilos de texto comunes para todas las secciones */
+header, nav, main, aside, footer {
+    font-family: Arial, sans-serif; /* Fuente principal del sitio */
+    font-size: 18px; /* Tamaño de texto uniforme */
+    color: #000; /* Color de texto negro */
+    border: 2px solid #000; /* Borde negro de 2px para delimitar cada sección */
+}

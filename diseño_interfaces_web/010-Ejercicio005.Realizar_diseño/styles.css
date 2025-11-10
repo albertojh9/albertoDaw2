@@ -1,0 +1,98 @@
+/* Reset básico y configuración del body */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 5px;
+    background-color: #ffffff;
+    height: 100vh; /* Altura completa de la ventana */
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header automático, contenido flexible, footer automático */
+    gap: 15px; /* Aumentamos el espacio entre las secciones principales */
+}
+
+/* Estilo para el header */
+header {
+    background-color: #9FDFEF;
+    padding: 5px;
+    border: 2px solid #4FB3CC;
+}
+
+.header-content {
+    padding: 7px 10px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Estilo para el nav dentro del header */
+nav {
+    background-color: #FFFFDD;
+    padding: 12px 15px;
+    border: 2px solid #CCCC99;
+    font-size: 14px;
+}
+
+/* Contenedor principal usando Grid para article y aside */
+.main-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 15px; /* Aumentamos el espacio entre article y aside */
+    height: 100%; /* Ocupa toda la altura disponible */
+}
+
+/* Estilo para el article */
+article {
+    background-color: #A6C5E5;
+    padding: 6px;
+    border: 2px solid #6699CC;
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Aumentamos el espacio entre sections */
+    font-size: 14px;
+}
+
+.article-title {
+    padding: 0 4px;
+    margin-bottom: -2px;
+}
+
+/* Estilo para las secciones dentro del article */
+section {
+    background-color: #F5AA66;
+    padding: 20px; /* Reducido el padding para mejor proporción */
+    border: 2px solid #CC7733;
+    text-align: center;
+    color: #000000;
+    font-size: 14px;
+    flex: 1; /* Cada section ocupa el mismo espacio disponible */
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+}
+
+/* Estilo para el aside */
+aside {
+    background-color: #E5B8E5;
+    padding: 20px;
+    border: 2px solid #B366B3;
+    font-size: 14px;
+}
+
+/* Estilo para el footer */
+footer {
+    background-color: #9FDFEF;
+    padding: 12px 15px;
+    border: 2px solid #4FB3CC;
+    font-size: 14px;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .main-container {
+        grid-template-columns: 1fr;
+    }
+}

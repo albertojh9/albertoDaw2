@@ -29,14 +29,15 @@ body {
     line-height: calc(100vh - 40px);
 }
 
-.left-sidebar-content p {
+/* Párrafo específico del sidebar izquierdo */
+p.left {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
     font-size: 16px;
     color: #333;
     writing-mode: vertical-rl;
-    transform: rotate(180deg);
+    transform: rotate(-180deg); /* Rotación 180 grados hacia la derecha (sentido horario) */
 }
 
 /* Sidebar derecho */
@@ -57,14 +58,15 @@ body {
     line-height: calc(100vh - 40px);
 }
 
-.right-sidebar-content p {
+/* Párrafo específico del sidebar derecho */
+p.right {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
     font-size: 16px;
     color: #333;
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
+    writing-mode: vertical-rl; /* Texto vertical orientado hacia la izquierda */
+    transform: rotate(180deg); /* Rotación 180 grados hacia la izquierda (sentido antihorario) */
 }
 
 /* Contenido principal */
