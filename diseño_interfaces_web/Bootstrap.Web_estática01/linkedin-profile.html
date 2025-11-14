@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alberto Jiménez Hernández - LinkedIn</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- 
+    NOTA: Esta página NO usa JavaScript personalizado
+    Solo utiliza HTML, CSS y Bootstrap
+    Todas las animaciones y efectos son puramente CSS
+    -->
+</head>
+<body>
+    
+    <!-- Menú lateral fijo -->
+    <nav id="sidebar" class="d-none d-md-block">
+        <div class="sidebar-sticky">
+            <div class="sidebar-header">
+                <i class="bi bi-list-ul"></i>
+                <h5 class="sidebar-heading">Navegación</h5>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#inicio">
+                        <i class="bi bi-house-door-fill"></i> 
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#acerca">
+                        <i class="bi bi-person-fill"></i> 
+                        <span>Acerca de</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#formacion">
+                        <i class="bi bi-mortarboard-fill"></i> 
+                        <span>Formación</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#habilidades">
+                        <i class="bi bi-gear-fill"></i> 
+                        <span>Habilidades</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#proyectos">
+                        <i class="bi bi-folder-fill"></i> 
+                        <span>Proyectos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#idiomas">
+                        <i class="bi bi-translate"></i> 
+                        <span>Idiomas</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main id="main-content">
+        
+        <!-- Sección de portada y perfil -->
+        <section id="inicio" class="profile-header">
+            <!-- Imagen de portada -->
+            <div class="cover-photo">
+                <div class="cover-overlay"></div>
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=300&fit=crop" alt="Portada" class="w-100">
+            </div>
+            
+            <!-- Foto de perfil -->
+            <div class="container position-relative">
+                <div class="profile-photo-container">
+                    <div class="profile-photo-ring"></div>
+                    <img src="https://ui-avatars.com/api/?name=Alberto+Jimenez&size=150&background=0077B5&color=fff&bold=true" alt="Alberto Jiménez" class="profile-photo">
+                </div>
+                
+                <!-- Información básica -->
+                <div class="profile-info">
+                    <h1 class="profile-name">Alberto Jiménez Hernández</h1>
+                    <p class="profile-title">
+                        <i class="bi bi-briefcase-fill text-primary"></i> 
+                        SMR (Sistemas Microinformáticos y Redes) y Estudiante de DAW (Desarrollo de Aplicaciones Web)
+                    </p>
+                    <p class="profile-location">
+                        <i class="bi bi-geo-alt-fill text-danger"></i> Badajoz, España
+                    </p>
+                    
+                    <!-- Estadísticas rápidas -->
+                    <div class="profile-stats mt-3 mb-3">
+                        <div class="stat-item">
+                            <i class="bi bi-code-slash"></i>
+                            <span>Full-Stack</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="bi bi-lightning-charge-fill"></i>
+                            <span>En formación</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="bi bi-star-fill"></i>
+                            <span>4 Proyectos</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Información de contacto -->
+                    <div class="contact-info mt-3">
+                        <a href="mailto:ajimenezh11@educarex.es" class="btn btn-outline-primary btn-sm me-2 mb-2">
+                            <i class="bi bi-envelope-fill"></i> Email
+                        </a>
+                        <a href="tel:620297264" class="btn btn-outline-primary btn-sm me-2 mb-2">
+                            <i class="bi bi-telephone-fill"></i> Teléfono
+                        </a>
+                        <a href="https://github.com/albertojh9?tab=repositories" target="_blank" class="btn btn-outline-dark btn-sm mb-2">
+                            <i class="bi bi-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mt-4">
+            
+            <!-- Sección Acerca de -->
+            <section id="acerca" class="profile-section">
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="bi bi-person-fill section-icon"></i>
+                        Acerca de
+                    </h2>
+                    <div class="section-content about-content">
+                        <p><i class="bi bi-chat-quote text-primary"></i> Me llamo Alberto y soy un desarrollador web en formación de 21 años apasionado por la tecnología y la programación. Actualmente curso el ciclo formativo de Desarrollo de Aplicaciones Web (DAW) en el IES Castelar, donde estoy especializándome en tecnologías full-stack como PHP, JavaScript, React, Docker y AWS.</p>
+                        
+                        <p><i class="bi bi-award text-success"></i> Cuento con formación previa en Sistemas Microinformáticos y Redes (SMR), lo que me proporciona una visión completa del desarrollo de software, desde la infraestructura hasta la interfaz de usuario. Mi enfoque está en crear aplicaciones web robustas, escalables y con un código limpio y bien documentado.</p>
+                        
+                        <p><i class="bi bi-rocket-takeoff text-danger"></i> Disfruto enfrentándome a nuevos retos técnicos y estoy constantemente ampliando mis conocimientos en desarrollo web, tanto en el frontend como en el backend. Mi objetivo es seguir creciendo profesionalmente en el sector tecnológico y contribuir en proyectos innovadores que generen impacto.</p>
+                        
+                        <p><i class="bi bi-hand-thumbs-up text-warning"></i> Siempre abierto a nuevas oportunidades de aprendizaje y colaboración.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Formación -->
+            <section id="formacion" class="profile-section">
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="bi bi-mortarboard-fill section-icon"></i>
+                        Formación académica
+                    </h2>
+                    <div class="section-content">
+                        
+                        <!-- Formación 1 -->
+                        <div class="education-item">
+                            <div class="education-card">
+                                <div class="education-icon-container">
+                                    <i class="bi bi-bank2 education-icon"></i>
+                                </div>
+                                <div class="education-info">
+                                    <h4><i class="bi bi-buildings-fill"></i> IES Castelar</h4>
+                                    <h5><i class="bi bi-laptop"></i> Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</h5>
+                                    <p class="education-date">
+                                        <i class="bi bi-calendar-event-fill"></i> 2024 - 2026
+                                    </p>
+                                    <p class="education-description">Formación especializada en desarrollo full-stack, incluyendo tecnologías frontend (HTML, CSS, JavaScript, React) y backend (PHP, bases de datos), así como herramientas de desarrollo modernas como Docker, Git y AWS. Enfoque en arquitectura MVC, diseño responsive y buenas prácticas de programación.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Formación 2 -->
+                        <div class="education-item">
+                            <div class="education-card">
+                                <div class="education-icon-container">
+                                    <i class="bi bi-bank2 education-icon"></i>
+                                </div>
+                                <div class="education-info">
+                                    <h4><i class="bi bi-buildings-fill"></i> IES Suárez de Figueroa</h4>
+                                    <h5><i class="bi bi-router"></i> Técnico en Sistemas Microinformáticos y Redes (SMR)</h5>
+                                    <p class="education-date">
+                                        <i class="bi bi-calendar-event-fill"></i> 2022 - 2024
+                                    </p>
+                                    <p class="education-description">Formación técnica en administración de sistemas, redes informáticas, instalación y mantenimiento de equipos informáticos, y gestión de infraestructuras TI. Base sólida en conceptos de hardware, redes y sistemas operativos.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Habilidades -->
+            <section id="habilidades" class="profile-section">
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="bi bi-gear-fill section-icon"></i>
+                        Habilidades técnicas
+                    </h2>
+                    <div class="section-content">
+                        
+                        <div class="skills-category mb-4">
+                            <h5 class="skill-category-title">
+                                <i class="bi bi-palette-fill"></i> Frontend
+                            </h5>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-filetype-html text-danger"></i> HTML5</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-filetype-css text-primary"></i> CSS3</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-filetype-js text-warning"></i> JavaScript</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-react text-info"></i> React</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-bootstrap-fill text-purple"></i> Bootstrap</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-file-code text-success"></i> SASS/SCSS</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skills-category mb-4">
+                            <h5 class="skill-category-title">
+                                <i class="bi bi-database-fill"></i> Backend
+                            </h5>
+                            <div class="skills-grid">
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-filetype-php text-primary"></i> PHP</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-server text-warning"></i> MySQL</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-hdd-network text-success"></i> MariaDB</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <span class="skill-name"><i class="bi bi-diagram-3-fill text-info"></i> Arquitectura MVC</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="skills-category mb-4">
+                            <h5 class="skill-category-title">
+                                <i class="bi bi-cloud-fill"></i> DevOps & Herramientas
+                            </h5>
+                            <div class="skills-list">
+                                <span class="badge skill-badge"><i class="bi bi-boxes"></i> Docker</span>
+                                <span class="badge skill-badge"><i class="bi bi-cloud-arrow-up-fill"></i> AWS EC2</span>
+                                <span class="badge skill-badge"><i class="bi bi-hdd-rack-fill"></i> Apache Server</span>
+                                <span class="badge skill-badge"><i class="bi bi-git"></i> Git</span>
+                                <span class="badge skill-badge"><i class="bi bi-github"></i> GitHub</span>
+                                <span class="badge skill-badge"><i class="bi bi-ubuntu"></i> WSL</span>
+                                <span class="badge skill-badge"><i class="bi bi-database-gear"></i> phpMyAdmin</span>
+                                <span class="badge skill-badge"><i class="bi bi-node-plus-fill"></i> Node.js</span>
+                                <span class="badge skill-badge"><i class="bi bi-box-seam-fill"></i> npm</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Proyectos -->
+            <section id="proyectos" class="profile-section">
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="bi bi-folder-fill section-icon"></i>
+                        Proyectos destacados
+                    </h2>
+                    <div class="section-content">
+                        
+                        <div class="row">
+                            <!-- Proyecto 1 -->
+                            <div class="col-md-6 mb-4">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <i class="bi bi-laptop project-icon"></i>
+                                        <h4>Sistema de Gestión de Prácticas FCT</h4>
+                                    </div>
+                                    <p class="project-description">Sistema completo de gestión de prácticas con autenticación, roles de usuario y operaciones CRUD. Implementación de arquitectura MVC para mantener el código organizado y escalable.</p>
+                                    <div class="project-tech">
+                                        <span class="badge tech-badge">PHP</span>
+                                        <span class="badge tech-badge">MVC</span>
+                                        <span class="badge tech-badge">MySQL</span>
+                                        <span class="badge tech-badge">HTML/CSS</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Proyecto 2 -->
+                            <div class="col-md-6 mb-4">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <i class="bi bi-code-square project-icon"></i>
+                                        <h4>Aplicaciones Interactivas JavaScript</h4>
+                                    </div>
+                                    <p class="project-description">Desarrollo de múltiples ejercicios incluyendo juegos, validación de formularios en tiempo real y manipulación del DOM. Implementación de programación funcional y procedural.</p>
+                                    <div class="project-tech">
+                                        <span class="badge tech-badge">JavaScript</span>
+                                        <span class="badge tech-badge">HTML</span>
+                                        <span class="badge tech-badge">CSS</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Proyecto 3 -->
+                            <div class="col-md-6 mb-4">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <i class="bi bi-hdd-stack project-icon"></i>
+                                        <h4>Infraestructura con Docker</h4>
+                                    </div>
+                                    <p class="project-description">Configuración de entornos multi-contenedor con MariaDB, PHP-Apache y phpMyAdmin. Despliegue en AWS EC2 con configuración de Apache Server.</p>
+                                    <div class="project-tech">
+                                        <span class="badge tech-badge">Docker</span>
+                                        <span class="badge tech-badge">Docker Compose</span>
+                                        <span class="badge tech-badge">AWS EC2</span>
+                                        <span class="badge tech-badge">Apache</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Proyecto 4 -->
+                            <div class="col-md-6 mb-4">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <i class="bi bi-tree project-icon"></i>
+                                        <h4>Proyectos de Sostenibilidad Digital</h4>
+                                    </div>
+                                    <p class="project-description">Desarrollo de aplicaciones web enfocadas en tecnologías digitales aplicadas a la agricultura. Diseño responsive utilizando CSS Grid y Flexbox.</p>
+                                    <div class="project-tech">
+                                        <span class="badge tech-badge">HTML</span>
+                                        <span class="badge tech-badge">CSS</span>
+                                        <span class="badge tech-badge">JavaScript</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Idiomas -->
+            <section id="idiomas" class="profile-section">
+                <div class="section-card">
+                    <h2 class="section-title">
+                        <i class="bi bi-translate section-icon"></i>
+                        Idiomas
+                    </h2>
+                    <div class="section-content">
+                        
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="language-card">
+                                    <div class="language-flag">🇪🇸</div>
+                                    <h5>Español</h5>
+                                    <p class="language-level">Nativo</p>
+                                    <div class="language-bar">
+                                        <div class="language-progress" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="language-card">
+                                    <div class="language-flag">🇬🇧</div>
+                                    <h5>Inglés</h5>
+                                    <p class="language-level">Nivel A2</p>
+                                    <div class="language-bar">
+                                        <div class="language-progress" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="language-card">
+                                    <div class="language-flag">🇫🇷</div>
+                                    <h5>Francés</h5>
+                                    <p class="language-level">Nivel A2</p>
+                                    <div class="language-bar">
+                                        <div class="language-progress" style="width: 40%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="mt-5 mb-4 text-center text-muted">
+                <p>&copy; 2024 Alberto Jiménez Hernández - Perfil LinkedIn</p>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Botón flotante para subir (solo CSS) -->
+    <a href="#inicio" class="scroll-top-btn">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
