@@ -1,0 +1,42 @@
+/* Estilos base */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Menú móvil - navegación vertical */
+.menu {
+    display: flex;
+    flex-direction: column; /* Por defecto, en columna para móviles */
+    background-color: #333;
+    padding: 0;
+}
+
+/* Enlaces del menú */
+.menu a {
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #444; /* Separador entre enlaces en móvil */
+}
+
+.menu a:hover {
+    background-color: #555;
+}
+
+/* Diseño para tablets y escritorio (≥600px) */
+@media screen and (min-width: 600px) {
+    .menu {
+        flex-direction: row; /* Cambia a navegación horizontal */
+        justify-content: center;
+    }
+
+    .menu a {
+        border-bottom: none; /* Elimina separador inferior */
+        border-right: 1px solid #444; /* Separador vertical entre enlaces */
+    }
+
+    .menu a:last-child {
+        border-right: none; /* Sin borde en el último enlace */
+    }
+}
