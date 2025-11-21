@@ -1,0 +1,110 @@
+/* Reset básico para eliminar estilos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del body y centrado de contenido */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Contenedor principal del grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;        /* Dos columnas de igual tamaño */
+    grid-template-rows: auto auto auto;    /* Tres filas de altura automática */
+    grid-template-areas: 
+        "one one"           /* Item1 ocupa toda la primera fila */
+        "two three"         /* Item2 e Item3 se dividen la segunda fila */
+        "two four-five";    /* Item2 continúa, Four y Five comparten espacio */
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+/* Estilos base para todos los elementos del grid */
+.grid-item {
+    background: black;
+    padding: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+/* Posicionamiento con grid-template-areas */
+.item1 {
+    grid-area: one;        /* Se posiciona en el área "one" */
+    font-size: 2rem;
+}
+
+.item2 {
+    grid-area: two;        /* Se posiciona en el área "two" */
+    min-height: 200px;     /* Mayor altura para crear el diseño en L */
+}
+
+.item3 {
+    grid-area: three;      /* Se posiciona en el área "three" */
+}
+
+/* Contenedor para Four y Five */
+.four-five-container {
+    grid-area: four-five;  /* Se posiciona en el área "four-five" */
+    display: grid;
+    grid-template-columns: 1fr 1fr;  /* Divide en dos columnas iguales */
+    gap: 15px;
+}
+
+.item4 {
+    min-height: 80px;
+}
+
+.item5 {
+    min-height: 80px;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;       /* Una sola columna en móvil */
+        grid-template-areas: 
+            "one"
+            "two"
+            "three"
+            "four-five";
+        gap: 10px;
+        padding: 10px;
+    }
+    
+    .four-five-container {
+        grid-template-columns: 1fr 1fr;   /* Four y Five siguen en dos columnas */
+        gap: 10px;
+    }
+    
+    .item2 {
+        min-height: 100px;
+    }
+    
+    .grid-item {
+        padding: 20px;
+        font-size: 1.2rem;
+        min-height: 80px;
+    }
+    
+    .item1 {
+        font-size: 1.5rem;
+    }
+}

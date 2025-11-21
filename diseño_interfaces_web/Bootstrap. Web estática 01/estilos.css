@@ -1,0 +1,382 @@
+/* ========================================
+   ESTILOS GENERALES DEL BODY
+   ======================================== */
+body {
+    font-family: Arial, sans-serif; /* Fuente básica y legible */
+    background-color: #f0f0f0; /* Fondo gris claro para toda la página */
+    margin: 0; /* Eliminar márgenes por defecto */
+    padding: 0; /* Eliminar padding por defecto */
+}
+
+/* ========================================
+   MENÚ LATERAL (SIDEBAR)
+   ======================================== */
+#sidebar {
+    position: fixed; /* Se mantiene fijo al hacer scroll */
+    top: 0; /* Pegado al borde superior */
+    left: 0; /* Pegado al borde izquierdo */
+    width: 200px; /* Ancho del menú */
+    height: 100vh; /* Altura completa de la ventana (100% viewport height) */
+    background-color: #0077B5; /* Color azul de LinkedIn */
+    padding: 20px; /* Espacio interno */
+    overflow-y: auto; /* Permite scroll vertical si el contenido es muy largo */
+}
+
+/* Título del menú lateral */
+#sidebar h5 {
+    color: white; /* Texto blanco */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Enlaces del menú lateral */
+#sidebar .nav-link {
+    color: white; /* Texto blanco */
+    padding: 10px; /* Espacio interno del enlace */
+    margin-bottom: 5px; /* Espacio entre enlaces */
+    border-radius: 5px; /* Esquinas redondeadas */
+}
+
+/* Efecto hover (cuando pasas el ratón por encima) */
+#sidebar .nav-link:hover {
+    background-color: #005a8c; /* Color más oscuro al pasar el ratón */
+}
+
+/* ========================================
+   CONTENIDO PRINCIPAL
+   ======================================== */
+#contenido {
+    margin-left: 200px; /* Desplaza el contenido hacia la derecha para dejar espacio al menú lateral */
+}
+
+/* ========================================
+   IMAGEN DE PORTADA
+   ======================================== */
+.portada {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 200px; /* Altura fija de 200px */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se salga */
+}
+
+.portada img {
+    width: 100%; /* La imagen ocupa todo el ancho del contenedor */
+    height: 100%; /* La imagen ocupa toda la altura del contenedor */
+    object-fit: cover; /* Recorta la imagen para que cubra todo el espacio sin deformarse */
+}
+
+/* ========================================
+   FOTO DE PERFIL CON CÍRCULO BLANCO
+   ======================================== */
+/* Contenedor de la foto de perfil */
+.foto-perfil {
+    position: relative; /* Permite posicionar elementos hijos de forma absoluta */
+    width: 150px; /* Ancho de la foto */
+    height: 150px; /* Alto de la foto */
+    margin: -75px auto 20px; /* -75px hacia arriba para superponer sobre la portada, centrado horizontalmente */
+}
+
+/* Círculo blanco de fondo (simula el efecto de LinkedIn) */
+.circulo-blanco {
+    position: absolute; /* Se posiciona respecto al contenedor padre (.foto-perfil) */
+    top: -5px; /* 5px hacia arriba respecto a la foto */
+    left: -5px; /* 5px hacia la izquierda respecto a la foto */
+    width: 160px; /* Ancho ligeramente mayor que la foto (150px + 10px) */
+    height: 160px; /* Alto ligeramente mayor que la foto (150px + 10px) */
+    background-color: white; /* Color blanco del círculo */
+    border-radius: 50%; /* Lo convierte en círculo (50% hace un círculo perfecto) */
+}
+
+/* La imagen de perfil en sí */
+.foto-perfil img {
+    position: relative; /* Se posiciona encima del círculo blanco */
+    width: 150px; /* Ancho de la imagen */
+    height: 150px; /* Alto de la imagen */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+}
+
+/* ========================================
+   MEDIA QUERIES - AJUSTE DE FOTO SEGÚN RESOLUCIÓN
+   Estos ajustes son OBLIGATORIOS según el enunciado
+   ======================================== */
+
+/* MÓVILES - Pantallas menores a 576px */
+@media (max-width: 576px) {
+    .foto-perfil {
+        width: 100px; /* Foto más pequeña en móviles */
+        height: 100px;
+        margin: -50px auto 20px; /* Ajuste del margen negativo */
+    }
+    .circulo-blanco {
+        width: 110px; /* Círculo blanco ajustado al nuevo tamaño */
+        height: 110px;
+    }
+    .foto-perfil img {
+        width: 100px; /* Imagen más pequeña */
+        height: 100px;
+    }
+    .portada {
+        height: 120px; /* Portada más baja en móviles */
+    }
+}
+
+/* TABLETS - Pantallas entre 577px y 768px */
+@media (min-width: 577px) and (max-width: 768px) {
+    .foto-perfil {
+        width: 120px; /* Tamaño intermedio para tablets */
+        height: 120px;
+        margin: -60px auto 20px;
+    }
+    .circulo-blanco {
+        width: 130px;
+        height: 130px;
+    }
+    .foto-perfil img {
+        width: 120px;
+        height: 120px;
+    }
+    .portada {
+        height: 150px;
+    }
+}
+
+/* PANTALLAS GRANDES - Mayores a 1200px */
+@media (min-width: 1200px) {
+    .foto-perfil {
+        width: 180px; /* Foto más grande en pantallas grandes */
+        height: 180px;
+        margin: -90px auto 20px;
+    }
+    .circulo-blanco {
+        width: 190px;
+        height: 190px;
+    }
+    .foto-perfil img {
+        width: 180px;
+        height: 180px;
+    }
+    .portada {
+        height: 250px; /* Portada más alta en pantallas grandes */
+    }
+}
+
+/* ========================================
+   INFORMACIÓN BÁSICA (Nombre, título, ubicación)
+   ======================================== */
+.info-basica {
+    text-align: center; /* Centra todo el contenido */
+    padding: 20px; /* Espacio interno */
+    background-color: white; /* Fondo blanco */
+    margin-bottom: 20px; /* Espacio debajo de esta sección */
+}
+
+/* Nombre completo (h1) */
+.info-basica h1 {
+    font-size: 28px; /* Tamaño grande para el nombre */
+    margin-bottom: 10px; /* Espacio debajo */
+    color: #333; /* Color gris oscuro */
+}
+
+/* Título profesional */
+.info-basica .titulo {
+    color: #666; /* Color gris medio */
+    margin-bottom: 5px; /* Poco espacio debajo */
+}
+
+/* Ubicación */
+.info-basica .ubicacion {
+    color: #666; /* Color gris medio */
+    margin-bottom: 15px; /* Espacio antes de los botones */
+}
+
+/* Contenedor de botones de contacto */
+.botones-contacto {
+    display: flex; /* Usa flexbox para alinear los botones */
+    gap: 10px; /* Espacio entre botones */
+    justify-content: center; /* Centra los botones horizontalmente */
+    flex-wrap: wrap; /* Permite que los botones bajen a otra línea si no caben */
+}
+
+/* ========================================
+   SECCIONES (Acerca de, Formación, Habilidades, etc.)
+   ======================================== */
+.seccion {
+    background-color: white; /* Fondo blanco para cada sección */
+    padding: 25px; /* Espacio interno generoso */
+    margin-bottom: 20px; /* Espacio entre secciones */
+    border-radius: 5px; /* Esquinas ligeramente redondeadas */
+}
+
+/* Títulos de sección (h2) */
+.seccion h2 {
+    font-size: 22px; /* Tamaño del título */
+    color: #333; /* Color gris oscuro */
+    margin-bottom: 20px; /* Espacio debajo del título */
+    border-bottom: 2px solid #0077B5; /* Línea azul debajo del título (estilo LinkedIn) */
+    padding-bottom: 10px; /* Espacio entre el texto y la línea */
+}
+
+/* Subtítulos dentro de las secciones (h5) */
+.seccion h5 {
+    margin-top: 20px; /* Espacio arriba */
+    margin-bottom: 15px; /* Espacio debajo */
+    color: #333; /* Color gris oscuro */
+}
+
+/* Párrafos dentro de las secciones */
+.seccion p {
+    color: #555; /* Color gris medio para el texto */
+    line-height: 1.6; /* Altura de línea para mejor legibilidad */
+    margin-bottom: 15px; /* Espacio entre párrafos */
+}
+
+/* ========================================
+   SECCIÓN FORMACIÓN
+   ======================================== */
+.formacion-item {
+    margin-bottom: 25px; /* Espacio entre elementos de formación */
+    padding-bottom: 20px; /* Espacio interno abajo */
+    border-bottom: 1px solid #ddd; /* Línea separadora gris clara */
+}
+
+/* Eliminar borde del último elemento */
+.formacion-item:last-child {
+    border-bottom: none; /* No mostrar línea en el último elemento */
+}
+
+/* Título del curso (h4) */
+.formacion-item h4 {
+    font-size: 18px; /* Tamaño del título */
+    margin-bottom: 5px; /* Poco espacio debajo */
+    color: #333; /* Color gris oscuro */
+}
+
+/* Nombre de la institución */
+.institucion {
+    color: #0077B5; /* Color azul LinkedIn para destacar */
+    margin-bottom: 5px; /* Poco espacio debajo */
+}
+
+/* Periodo de tiempo (fechas) */
+.periodo {
+    color: #888; /* Color gris claro */
+    font-size: 14px; /* Texto más pequeño */
+    margin-bottom: 10px; /* Espacio antes de la lista */
+}
+
+/* Lista de puntos dentro de formación */
+.formacion-item ul {
+    margin-left: 20px; /* Sangría para la lista */
+}
+
+/* ========================================
+   SECCIÓN HABILIDADES (Barras de progreso)
+   ======================================== */
+/* Contenedor de la barra de progreso */
+.progress {
+    height: 25px; /* Altura de la barra */
+    margin-bottom: 15px; /* Espacio debajo de cada barra */
+    border-radius: 5px; /* Esquinas redondeadas */
+    background-color: #ddd; /* Color gris de fondo */
+}
+
+/* La barra de progreso en sí (la parte coloreada) */
+.progress-bar {
+    background-color: #0077B5; /* Color azul LinkedIn */
+    text-align: center; /* Centra el texto (porcentaje) */
+    line-height: 25px; /* Centra verticalmente el texto */
+    color: white; /* Texto blanco */
+}
+
+/* ========================================
+   SECCIÓN PROYECTOS
+   ======================================== */
+.proyecto {
+    background-color: #f8f8f8; /* Fondo gris muy claro */
+    padding: 20px; /* Espacio interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    margin-bottom: 20px; /* Espacio entre proyectos */
+    border: 1px solid #ddd; /* Borde gris claro */
+}
+
+/* Título del proyecto */
+.proyecto h4 {
+    font-size: 18px; /* Tamaño del título */
+    margin-bottom: 10px; /* Espacio debajo */
+    color: #333; /* Color gris oscuro */
+}
+
+/* Descripción del proyecto */
+.proyecto p {
+    margin-bottom: 15px; /* Espacio debajo de la descripción */
+    color: #555; /* Color gris medio */
+}
+
+/* ========================================
+   SECCIÓN IDIOMAS
+   ======================================== */
+.idioma {
+    text-align: center; /* Centra todo el contenido */
+    padding: 20px; /* Espacio interno */
+    background-color: #f8f8f8; /* Fondo gris muy claro */
+    border-radius: 5px; /* Esquinas redondeadas */
+    margin-bottom: 15px; /* Espacio entre idiomas */
+    border: 1px solid #ddd; /* Borde gris claro */
+}
+
+/* Emoji de la bandera */
+.bandera {
+    font-size: 50px; /* Tamaño grande del emoji */
+    margin-bottom: 10px; /* Espacio debajo */
+}
+
+/* Nombre del idioma */
+.idioma h5 {
+    margin-bottom: 5px; /* Poco espacio debajo */
+    color: #333; /* Color gris oscuro */
+}
+
+/* Nivel del idioma */
+.idioma p {
+    color: #666; /* Color gris medio */
+    margin-bottom: 10px; /* Espacio antes de la barra de progreso */
+}
+
+/* ========================================
+   BOTÓN FLOTANTE (Subir al inicio)
+   ======================================== */
+.cmn-divfloat {
+    position: fixed; /* Se mantiene fijo en la pantalla al hacer scroll */
+    bottom: 30px; /* 30px desde el borde inferior */
+    right: 30px; /* 30px desde el borde derecho */
+    display: none; /* Inicialmente oculto (el JS lo muestra después de hacer scroll) */
+}
+
+/* El botón circular en sí */
+.cmn-btncircle {
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Alto del botón */
+    border-radius: 50%; /* Lo hace circular (50% = círculo perfecto) */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+/* Icono dentro del botón */
+.cmn-btncircle i {
+    color: white; /* Color blanco del icono */
+}
+
+/* ========================================
+   RESPONSIVE - Adaptación a móviles
+   ======================================== */
+/* En pantallas menores a 767px (móviles y tablets pequeñas) */
+@media (max-width: 767px) {
+    #sidebar {
+        display: none; /* Oculta el menú lateral en móviles */
+    }
+    
+    #contenido {
+        margin-left: 0; /* El contenido ocupa todo el ancho (no hay menú lateral) */
+    }
+}

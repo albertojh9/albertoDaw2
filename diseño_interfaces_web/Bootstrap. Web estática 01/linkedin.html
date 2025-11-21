@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alberto Jiménez - LinkedIn</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Mi CSS -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    
+    <!-- Ancla para volver al inicio -->
+    <a name="inicio" id="inicio"></a>
+
+    <!-- Menú lateral -->
+    <nav id="sidebar">
+        <h5>Menú</h5>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="#inicio"><i class="bi bi-house"></i> Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#acerca"><i class="bi bi-person"></i> Acerca de</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#formacion"><i class="bi bi-mortarboard"></i> Formación</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#habilidades"><i class="bi bi-gear"></i> Habilidades</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#proyectos"><i class="bi bi-folder"></i> Proyectos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#idiomas"><i class="bi bi-translate"></i> Idiomas</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Contenido -->
+    <main id="contenido">
+        
+        <!-- Portada y perfil -->
+        <section class="portada">
+            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=300&fit=crop" alt="Portada">
+        </section>
+
+        <div class="container">
+            <!-- Foto de perfil con círculo blanco -->
+            <div class="foto-perfil">
+                <div class="circulo-blanco"></div>
+                <img src="https://ui-avatars.com/api/?name=Alberto+Jimenez&size=150&background=0077B5&color=fff&bold=true" alt="Alberto">
+            </div>
+
+            <!-- Información básica -->
+            <div class="info-basica">
+                <h1>Alberto Jiménez Hernández</h1>
+                <p class="titulo">Estudiante de DAW - Desarrollo de Aplicaciones Web</p>
+                <p class="ubicacion"><i class="bi bi-geo-alt"></i> Badajoz, España</p>
+                <div class="botones-contacto">
+                    <a href="mailto:ajimenezh11@educarex.es" class="btn btn-primary btn-sm">Email</a>
+                    <a href="tel:620297264" class="btn btn-primary btn-sm">Teléfono</a>
+                    <a href="https://github.com/albertojh9" class="btn btn-dark btn-sm">GitHub</a>
+                </div>
+            </div>
+
+            <!-- Sección Acerca de -->
+            <section id="acerca" class="seccion">
+                <h2><i class="bi bi-person"></i> Acerca de</h2>
+                <p>Me llamo Alberto y soy un desarrollador web en formación de 21 años. Actualmente estudio DAW en el IES Castelar, especializándome en PHP, JavaScript, HTML, CSS, Docker y AWS.</p>
+                <p>Tengo formación previa en SMR (Sistemas Microinformáticos y Redes), lo que me da una visión completa del desarrollo de software. Me gusta crear aplicaciones web con código limpio y bien documentado.</p>
+                <p>Disfruto aprendiendo nuevas tecnologías y enfrentándome a retos técnicos. Mi objetivo es crecer en el sector tecnológico y trabajar en proyectos innovadores.</p>
+            </section>
+
+            <!-- Sección Formación -->
+            <section id="formacion" class="seccion">
+                <h2><i class="bi bi-mortarboard"></i> Formación</h2>
+                
+                <div class="formacion-item">
+                    <h4>Desarrollo de Aplicaciones Web (DAW)</h4>
+                    <p class="institucion">IES Castelar, Badajoz</p>
+                    <p class="periodo">2023 - 2025</p>
+                    <ul>
+                        <li>PHP y arquitectura MVC</li>
+                        <li>JavaScript, HTML5 y CSS3</li>
+                        <li>MySQL y bases de datos</li>
+                        <li>Docker y AWS</li>
+                        <li>Git y GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="formacion-item">
+                    <h4>Sistemas Microinformáticos y Redes (SMR)</h4>
+                    <p class="institucion">IES Suárez de Figueroa</p>
+                    <p class="periodo">2021 - 2023</p>
+                    <ul>
+                        <li>Administración de sistemas Windows y Linux</li>
+                        <li>Configuración de redes</li>
+                        <li>Mantenimiento de equipos</li>
+                        <li>Seguridad informática</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Sección Habilidades -->
+            <section id="habilidades" class="seccion">
+                <h2><i class="bi bi-gear"></i> Habilidades</h2>
+                
+                <h5>Lenguajes de Programación</h5>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <p>PHP</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%">80%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>JavaScript</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%">75%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>HTML5</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%">90%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>CSS3</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%">85%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5>Tecnologías</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>MySQL</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 75%">75%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Docker</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 65%">65%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Git</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 80%">80%</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Bootstrap</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 85%">85%</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Proyectos -->
+            <section id="proyectos" class="seccion">
+                <h2><i class="bi bi-folder"></i> Proyectos</h2>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="proyecto">
+                            <h4>Sistema de Gestión de Prácticas FCT</h4>
+                            <p>Sistema de gestión de prácticas con autenticación y roles. Arquitectura MVC con PHP y MySQL.</p>
+                            <div>
+                                <span class="badge bg-primary">PHP</span>
+                                <span class="badge bg-secondary">MVC</span>
+                                <span class="badge bg-info">MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="proyecto">
+                            <h4>Aplicaciones JavaScript</h4>
+                            <p>Juegos interactivos y validación de formularios. Manipulación del DOM con JavaScript puro.</p>
+                            <div>
+                                <span class="badge bg-warning text-dark">JavaScript</span>
+                                <span class="badge bg-success">HTML</span>
+                                <span class="badge bg-primary">CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="proyecto">
+                            <h4>Infraestructura con Docker</h4>
+                            <p>Entornos multi-contenedor con MariaDB y PHP. Despliegue en AWS EC2.</p>
+                            <div>
+                                <span class="badge bg-info">Docker</span>
+                                <span class="badge bg-warning text-dark">AWS</span>
+                                <span class="badge bg-danger">Apache</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="proyecto">
+                            <h4>Webs Responsive</h4>
+                            <p>Aplicaciones web con diseño responsive usando CSS Grid y Flexbox.</p>
+                            <div>
+                                <span class="badge bg-success">HTML</span>
+                                <span class="badge bg-primary">CSS</span>
+                                <span class="badge bg-warning text-dark">JavaScript</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Idiomas -->
+            <section id="idiomas" class="seccion">
+                <h2><i class="bi bi-translate"></i> Idiomas</h2>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="idioma">
+                            <div class="bandera">🇪🇸</div>
+                            <h5>Español</h5>
+                            <p>Nativo</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" style="width: 100%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="idioma">
+                            <div class="bandera">🇬🇧</div>
+                            <h5>Inglés</h5>
+                            <p>Nivel A2</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="idioma">
+                            <div class="bandera">🇫🇷</div>
+                            <h5>Francés</h5>
+                            <p>Nivel A2</p>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" style="width: 40%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="text-center mt-5 mb-4">
+                <p>&copy; 2025 Alberto Jiménez Hernández</p>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Botón flotante -->
+    <div id="div-totop" class="cmn-divfloat">
+        <a href="#inicio" class="btn btn-primary cmn-btncircle">
+            <i class="fa fa-arrow-up">Subir</i>
+        </a>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JS personalizado (Para el botón flotante). Es importante cargarlo aquí, sino no funciona -->
+    <script src="script.js"></script>
+
+</body>
+</html>

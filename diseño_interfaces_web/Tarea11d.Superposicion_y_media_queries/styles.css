@@ -1,0 +1,115 @@
+/* Contenedor principal del grid */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 columnas iguales */
+    grid-template-rows: repeat(4, 1fr);    /* 4 filas iguales */
+    gap: 0;                               /* ESPACIO ELIMINADO */
+    width: 100%;
+    max-width: 1200px;                     /* Límite máximo de ancho */
+    margin: 0 auto;                        /* Centra horizontalmente */
+    height: 80vh;                          /* 80% de la altura de la ventana */
+    position: relative;                    /* Para que z-index funcione */
+}
+
+/* Estilos base para todos los elementos del grid */
+.grid-item {
+    border-radius: 0;                      /* Quitamos esquinas redondeadas para mejor ajuste */
+    overflow: hidden;                      /* Oculta contenido desbordante */
+    box-shadow: none;                      /* Quitamos sombra para mejor ajuste */
+    background-color: #f0f0f0;             /* Color de fondo por defecto */
+    display: flex;
+    align-items: center;                   /* Centra verticalmente */
+    justify-content: center;               /* Centra horizontalmente */
+    font-weight: bold;
+    color: #333;
+}
+
+/* Layout para pantallas grandes (escritorio) - MODIFICADO */
+@media (min-width: 901px) {
+    .image1 {
+        grid-column: 4 / 6;                /* A la derecha de image2 */
+        grid-row: 2 / 4;                   /* Misma altura que image2 */
+        background-color: #ffcccc;         /* Rojo claro */
+        z-index: 5;                        /* Se superpone a image4 */
+    }
+    
+    .image2 {
+        grid-column: 2 / 4;                /* En las intersecciones del cuadrado */
+        grid-row: 2 / 4;                   /* Centrado en las intersecciones */
+        background-color: #ccffcc;         /* Verde claro */
+        z-index: 3;                        /* Nivel medio - debajo de image4 */
+    }
+    
+    .image3 {
+        grid-column: 1 / 3;                /* Esquina superior izquierda del cuadrado */
+        grid-row: 1 / 3;                   /* Arriba */
+        background-color: #ccccff;         /* Azul claro */
+        z-index: 1;                        /* Nivel bajo */
+    }
+    
+    .image4 {
+        grid-column: 3 / 5;                /* Al lado de image3 */
+        grid-row: 1 / 3;                   /* Arriba */
+        background-color: #ffffcc;         /* Amarillo claro */
+        z-index: 4;                        /* Se superpone a image2 */
+    }
+    
+    .image5 {
+        grid-column: 3 / 5;                /* Al lado de image6 */
+        grid-row: 3 / 5;                   /* Abajo */
+        background-color: #ffccff;         /* Magenta claro */
+        z-index: 2;                        /* Nivel bajo */
+    }
+    
+    .image6 {
+        grid-column: 1 / 3;                /* Debajo de image3 */
+        grid-row: 3 / 5;                   /* Abajo */
+        background-color: #ccffff;         /* Cyan claro */
+        z-index: 1;                        /* Nivel bajo */
+    }
+}
+
+/* Layout para pantallas pequeñas (móvil/tablet) - MISMAS POSICIONES QUE ESCRITORIO */
+@media (max-width: 900px) {
+    .image1 {
+        grid-column: 4 / 6;                /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        grid-row: 2 / 4;                   /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        background-color: #ffcccc;
+        z-index: 5;                        /* Se superpone a image5 pero no a image4 */
+    }
+    
+    .image2 {
+        grid-column: 2 / 4;                /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        grid-row: 2 / 4;                   /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        background-color: #ccffcc;
+        z-index: 7;                        /* MODIFICADO: Ahora es el más alto */
+    }
+    
+    .image3 {
+        grid-column: 1 / 3;                /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        grid-row: 1 / 3;                   /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        background-color: #ccccff;
+        z-index: 3;                        /* Debajo de image2 */
+    }
+    
+    .image4 {
+        grid-column: 3 / 5;                /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        grid-row: 1 / 3;                   /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        background-color: #ffffcc;
+        z-index: 6;                        /* MODIFICADO: Se superpone a image1 pero debajo de image2 */
+    }
+    
+    .image5 {
+        grid-column: 3 / 5;                /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        grid-row: 3 / 5;                   /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        background-color: #ffccff;
+        z-index: 4;                        /* Debajo de image1 */
+    }
+    
+    .image6 {
+        grid-column: 1 / 3;                /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        grid-row: 3 / 5;                   /* MISMA POSICIÓN QUE EN ESCRITORIO */
+        background-color: #ccffff;
+        z-index: 1;                        /* Debajo de todas */
+    }
+}

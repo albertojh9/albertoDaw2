@@ -1,0 +1,22 @@
+/* Reset básico */
+* {
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor de filas */
+.row {
+    display: flex;          /* Flexbox para alinear columnas horizontalmente */
+    width: 100%;
+    margin-bottom: 0;       /* Sin espacios entre filas */
+}
+
+/* Columnas que se distribuyen automáticamente */
+.col {
+    flex: 1;               /* Todas las columnas ocupan el mismo ancho */
+    border: 3px solid black;
+    padding: 5px;
+    font-size: 14px;
+    text-align: left;
+}
