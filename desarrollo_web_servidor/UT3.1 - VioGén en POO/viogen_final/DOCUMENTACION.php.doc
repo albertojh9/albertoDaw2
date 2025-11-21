@@ -1,0 +1,411 @@
+================================================================================
+  DOCUMENTACIÓN DEL SISTEMA VioGén - GESTIÓN DE AGRESIONES
+================================================================================
+
+AUTOR: Sistema VioGén
+FECHA: 21 de noviembre de 2025
+VERSIÓN: 1.0
+
+================================================================================
+  1. DESCRIPCIÓN GENERAL DEL SISTEMA
+================================================================================
+
+El Sistema VioGén es una aplicación web desarrollada en PHP con arquitectura
+MVC (Modelo-Vista-Controlador) para la gestión de registros de víctimas de
+violencia de género y sus agresiones asociadas.
+
+CARACTERÍSTICAS PRINCIPALES:
+- Registro de víctimas con datos personales opcionales
+- Registro de agresiones vinculadas a víctimas
+- Sistema de autenticación de usuarios
+- Búsqueda de agresiones por nombre exacto
+- Interfaz web sencilla y funcional
+
+TECNOLOGÍAS UTILIZADAS:
+- PHP 7.4 o superior
+- MySQL/MariaDB
+- PDO para acceso a base de datos
+- Patrón Singleton para conexión a BD
+- Arquitectura MVC
+- Front Controller Pattern
+
+================================================================================
+  2. ESTRUCTURA DEL PROYECTO
+================================================================================
+
+viogen_final/
+│
+├── index.php                   # Punto de entrada único (Front Controller)
+│
+├── config/
+│   ├── config.php              # Configuración general del sistema
+│   └── Database.php            # Clase de conexión a BD (Singleton)
+│
+├── models/
+│   ├── Usuario.php             # Modelo de usuarios
+│   ├── Victima.php             # Modelo de víctimas
+│   └── Agresion.php            # Modelo de agresiones
+│
+├── controllers/
+│   ├── LoginController.php     # Controlador de autenticación
+│   ├── MenuController.php      # Controlador del menú principal
+│   ├── VictimaController.php   # Controlador de víctimas
+│   └── AgresionController.php  # Controlador de agresiones
+│
+├── views/
+│   ├── login/
+│   │   └── login.php           # Vista del formulario de login
+│   ├── menu/
+│   │   └── menu.php            # Vista del menú y buscador
+│   ├── victima/
+│   │   └── crear.php           # Vista de registro de víctima
+│   └── agresion/
+│       └── crear.php           # Vista de registro de agresión
+│
+└── sql/
+    ├── viogen.sql              # Estructura de la base de datos
+    └── datos_viogen.sql        # Datos de prueba
+
+================================================================================
+  3. FLUJO DE FUNCIONAMIENTO
+================================================================================
+
+3.1. INICIO DE LA APLICACIÓN
+-----------------------------
+1. El usuario accede a index.php
+2. Se inicia la sesión PHP
+3. Se cargan las configuraciones (config.php y Database.php)
+4. Se obtienen los parámetros controller y action de la URL
+5. Se aplica el middleware de autenticación
+6. Si está autorizado, se carga el controlador y se ejecuta la acción
+
+3.2. MIDDLEWARE DE AUTENTICACIÓN
+---------------------------------
+- Define rutas públicas (login/index y login/login)
+- Verifica si la ruta requiere autenticación
+- Si requiere autenticación y no hay sesión, muestra error 401
+- Si está autenticado o es ruta pública, permite el acceso
+
+3.3. FLUJO DE LOGIN
+-------------------
+1. Usuario accede sin sesión → se muestra login.php
+2. Usuario ingresa nombre y clave (mínimo 4 caracteres)
+3. LoginController::login() valida credenciales
+4. Si es correcto: crea sesión y redirige al menú
+5. Si es incorrecto: muestra error
+
+3.4. FLUJO DE REGISTRO DE VÍCTIMA
+----------------------------------
+1. Usuario accede a VictimaController::crear()
+2. Se muestra formulario (todos los campos opcionales)
+3. Usuario envía datos (al menos nombre u observaciones)
+4. VictimaController::guardar() valida y sanitiza
+5. Se valida NIF/NIE si se proporciona
+6. Se guarda en BD y redirige al menú con mensaje de éxito
+
+3.5. FLUJO DE REGISTRO DE AGRESIÓN
+-----------------------------------
+1. Usuario accede a AgresionController::crear()
+2. Se cargan todas las víctimas disponibles
+3. Se muestra formulario con víctima, tipo, fecha (obligatorios)
+4. Usuario envía datos
+5. AgresionController::guardar() valida y sanitiza
+6. Se convierte fecha HTML5 a formato MySQL
+7. Se guarda en BD y redirige al menú con mensaje de éxito
+
+3.6. FLUJO DE BÚSQUEDA DE AGRESIONES
+-------------------------------------
+1. Usuario ingresa texto en el buscador del menú
+2. MenuController::index() recibe la búsqueda
+3. Se llama a Agresion::buscar() con el texto
+4. El modelo ejecuta consulta SQL con coincidencias EXACTAS
+5. Se muestran resultados en tabla o mensaje "No se encontraron resultados"
+
+================================================================================
+  4. ARQUITECTURA Y PATRONES
+================================================================================
+
+4.1. PATRÓN MVC (MODELO-VISTA-CONTROLADOR)
+-------------------------------------------
+MODELO: Gestiona datos y lógica de negocio
+- Usuario.php: autenticación
+- Victima.php: CRUD de víctimas, validación de documentos
+- Agresion.php: CRUD de agresiones, búsqueda
+
+VISTA: Presenta la información al usuario
+- Archivos .php en views/ que generan HTML
+
+CONTROLADOR: Intermediario entre modelo y vista
+- Recibe peticiones, valida, llama al modelo y carga la vista
+
+4.2. PATRÓN SINGLETON (Database.php)
+-------------------------------------
+- Garantiza una única instancia de conexión a BD
+- Evita múltiples conexiones simultáneas
+- Método getInstance() para obtener la instancia
+
+4.3. PATRÓN FRONT CONTROLLER (index.php)
+-----------------------------------------
+- Punto de entrada único para todas las peticiones
+- Centraliza el control de acceso y enrutamiento
+- Simplifica la seguridad y el mantenimiento
+
+4.4. SANITIZACIÓN Y VALIDACIÓN
+-------------------------------
+- htmlspecialchars() con ENT_QUOTES y UTF-8
+- filter_var() para validar enteros
+- Validaciones personalizadas (NIF, NIE)
+- Prepared Statements (PDO) para prevenir SQL Injection
+
+================================================================================
+  5. BASE DE DATOS
+================================================================================
+
+5.1. TABLAS
+-----------
+
+USUARIO
+-------
+- id: INT AUTO_INCREMENT PRIMARY KEY
+- nombre: VARCHAR(50) NOT NULL UNIQUE
+- clave: VARCHAR(50) NOT NULL
+
+VICTIMA
+-------
+- id: INT AUTO_INCREMENT PRIMARY KEY
+- nombre: VARCHAR(50) NULL
+- apellidos: VARCHAR(100) NULL
+- tipo_documento: ENUM('NIF', 'NIE', 'Pasaporte') NULL
+- documento: VARCHAR(20) NULL UNIQUE
+- telefono: VARCHAR(15) NULL
+- observaciones: TEXT NULL
+
+AGRESION
+--------
+- id: INT AUTO_INCREMENT PRIMARY KEY
+- id_victima: INT NOT NULL → FK a Victima.id
+- agresor: VARCHAR(100) NULL
+- tipo_agresion: ENUM('física', 'psicológica', 'sexual', 'vicaria') NOT NULL
+- fecha_hora: DATETIME NOT NULL
+- observaciones: TEXT NULL
+
+5.2. RELACIONES
+---------------
+- Una víctima puede tener múltiples agresiones (1:N)
+- Una agresión pertenece a una única víctima
+- CASCADE en DELETE: si se elimina víctima, se eliminan sus agresiones
+
+================================================================================
+  6. SEGURIDAD
+================================================================================
+
+6.1. AUTENTICACIÓN
+------------------
+- Sesiones PHP con session_regenerate_id()
+- Middleware que verifica autenticación en cada petición
+- Solo se almacena usuario_id en sesión
+
+6.2. PROTECCIÓN CONTRA ATAQUES
+-------------------------------
+- SQL Injection: Prepared Statements (PDO)
+- XSS: htmlspecialchars() en todas las salidas
+- CSRF: Podría mejorarse con tokens (no implementado)
+- Session Hijacking: session_regenerate_id() al hacer login
+
+6.3. VALIDACIÓN DE DATOS
+-------------------------
+- Sanitización de entradas con htmlspecialchars()
+- Validación de tipos (FILTER_VALIDATE_INT)
+- Validación de documentos (NIF/NIE)
+- Validación de tipos de agresión (ENUM)
+
+================================================================================
+  7. MÓDULOS Y FUNCIONALIDADES
+================================================================================
+
+7.1. MÓDULO DE LOGIN
+--------------------
+ARCHIVO: controllers/LoginController.php
+MÉTODOS:
+- index(): Muestra formulario de login
+- login(): Procesa autenticación
+- logout(): Cierra sesión
+
+VALIDACIONES:
+- Nombre y clave mínimo 4 caracteres
+- Credenciales correctas contra BD
+
+7.2. MÓDULO DE MENÚ
+-------------------
+ARCHIVO: controllers/MenuController.php
+MÉTODOS:
+- index(): Muestra menú principal y procesa búsquedas
+
+FUNCIONALIDADES:
+- Enlaces a registro de víctima y agresión
+- Buscador de agresiones
+- Muestra mensajes de éxito de operaciones anteriores
+
+7.3. MÓDULO DE VÍCTIMAS
+-----------------------
+ARCHIVO: controllers/VictimaController.php
+MÉTODOS:
+- crear(): Muestra formulario
+- guardar(): Procesa y guarda víctima
+
+VALIDACIONES:
+- Al menos nombre u observaciones
+- NIF: 8 dígitos + 1 letra
+- NIE: X/Y/Z + 7 dígitos + 1 letra
+
+7.4. MÓDULO DE AGRESIONES
+-------------------------
+ARCHIVO: controllers/AgresionController.php
+MÉTODOS:
+- crear(): Muestra formulario con lista de víctimas
+- guardar(): Procesa y guarda agresión
+
+VALIDACIONES:
+- Víctima obligatoria
+- Tipo de agresión obligatorio
+- Fecha y hora obligatoria
+- Conversión de fecha HTML5 a MySQL
+
+7.5. MÓDULO DE BÚSQUEDA
+-----------------------
+ARCHIVO: models/Agresion.php → buscar()
+MÉTODO: buscar($texto)
+
+LÓGICA DE BÚSQUEDA:
+- Busca coincidencias EXACTAS en:
+  * Nombre de la víctima
+  * Apellidos de la víctima
+  * Nombre completo (nombre + apellidos)
+  * Nombre completo invertido (apellidos + nombre)
+  * Teléfono
+  * Nombre del agresor
+- Retorna agresiones ordenadas por fecha descendente
+
+CAMBIOS RECIENTES:
+- Se modificó de búsqueda parcial (LIKE %texto%) a búsqueda exacta (=)
+- Esto evita que al buscar "Ana" aparezcan "Mariana", "Susana", etc.
+
+================================================================================
+  8. CONFIGURACIÓN
+================================================================================
+
+8.1. CONFIGURACIÓN DE BASE DE DATOS (config.php)
+-------------------------------------------------
+DB_HOST: 'localhost'
+DB_NAME: 'viogen'
+DB_USER: 'uviogen'
+DB_PASS: 'cviogen'
+DB_CHARSET: 'utf8mb4'
+
+8.2. CONFIGURACIÓN DE RUTAS
+----------------------------
+BASE_PATH: Directorio raíz del proyecto
+CONTROLLERS_PATH: /controllers/
+MODELS_PATH: /models/
+VIEWS_PATH: /views/
+
+8.3. CONSTANTES DEL SISTEMA
+----------------------------
+SESSION_NAME: 'viogen_session'
+TIPOS_DOCUMENTO: ['NIF', 'NIE', 'Pasaporte']
+TIPOS_AGRESION: ['física', 'psicológica', 'sexual', 'vicaria']
+
+8.4. MENSAJES
+-------------
+MSG_LOGIN_ERROR: 'Usuario o contraseña incorrectos'
+MSG_LOGIN_REQUIRED: 'Debe iniciar sesión para acceder'
+MSG_VICTIMA_OK: 'Víctima registrada correctamente'
+MSG_AGRESION_OK: 'Agresión registrada correctamente'
+MSG_ERROR: 'Error al guardar los datos'
+
+================================================================================
+  9. INSTALACIÓN Y CONFIGURACIÓN
+================================================================================
+
+9.1. REQUISITOS
+---------------
+- Servidor web Apache/Nginx
+- PHP 7.4 o superior
+- MySQL/MariaDB
+- Extensión PDO de PHP
+
+9.2. PASOS DE INSTALACIÓN
+--------------------------
+1. Copiar archivos al directorio del servidor web
+2. Crear base de datos MySQL:
+   - Ejecutar sql/viogen.sql (estructura)
+   - Ejecutar sql/datos_viogen.sql (datos de prueba)
+3. Configurar credenciales en config/config.php
+4. Asegurar permisos de lectura en archivos PHP
+5. Acceder a http://localhost/viogen_final/
+
+9.3. USUARIOS DE PRUEBA
+------------------------
+Usuario: usuario1 | Clave: clave1
+Usuario: usuario2 | Clave: clave2
+
+================================================================================
+  10. MEJORAS Y EXTENSIONES FUTURAS
+================================================================================
+
+10.1. SEGURIDAD
+---------------
+- Implementar tokens CSRF
+- Hashear contraseñas (bcrypt o argon2)
+- Implementar límite de intentos de login
+- HTTPS obligatorio en producción
+
+10.2. FUNCIONALIDADES
+---------------------
+- Edición y eliminación de víctimas
+- Edición y eliminación de agresiones
+- Exportación de informes a PDF/Excel
+- Estadísticas y gráficos
+- Sistema de notificaciones
+
+10.3. USABILIDAD
+----------------
+- Paginación de resultados
+- Búsqueda avanzada con filtros
+- Ordenamiento de columnas en tablas
+- Validación JavaScript en formularios
+- Diseño responsive con CSS
+
+10.4. ARQUITECTURA
+------------------
+- Separar lógica de validación en clases Validator
+- Implementar ORM (Eloquent, Doctrine)
+- Utilizar framework (Laravel, Symfony)
+- API REST para integración con otros sistemas
+
+================================================================================
+  11. GLOSARIO
+================================================================================
+
+MVC: Modelo-Vista-Controlador - Patrón de diseño de software
+PDO: PHP Data Objects - Extensión de PHP para acceso a bases de datos
+Singleton: Patrón de diseño que garantiza una única instancia de una clase
+Front Controller: Patrón que centraliza el manejo de peticiones
+CSRF: Cross-Site Request Forgery - Ataque de falsificación de peticiones
+XSS: Cross-Site Scripting - Ataque de inyección de scripts
+SQL Injection: Ataque de inyección de código SQL
+Sanitización: Proceso de limpiar datos de entrada
+Prepared Statements: Sentencias preparadas para prevenir SQL Injection
+
+================================================================================
+  12. CONTACTO Y SOPORTE
+================================================================================
+
+Para consultas, reportes de errores o sugerencias sobre el sistema VioGén,
+contacte al equipo de desarrollo.
+
+Documentación generada automáticamente el 21 de noviembre de 2025.
+
+================================================================================
+                            FIN DE LA DOCUMENTACIÓN
+================================================================================
