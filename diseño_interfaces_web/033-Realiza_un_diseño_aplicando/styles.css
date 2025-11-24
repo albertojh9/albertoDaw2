@@ -1,0 +1,127 @@
+/* ===================================
+   ESTILOS BÁSICOS
+   Alberto - IES Castelar
+   =================================== */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+/* Sección Intro */
+.intro-box {
+    transition: transform 0.3s;
+}
+
+.intro-box:hover {
+    transform: scale(1.05);
+}
+
+.intro-box h2 {
+    color: #0d6efd;
+    margin-bottom: 1rem;
+}
+
+/* Sección Sobre Mí */
+.about h3 {
+    color: #0d6efd;
+}
+
+.foto {
+    border-radius: 8px;
+}
+
+/* Sección Proyectos */
+.proyectos .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.proyectos .card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.proyectos h5 {
+    color: #0d6efd;
+}
+
+.proyectos .btn {
+    width: 100%;
+}
+
+/* Sección Habilidades */
+.habilidad {
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.habilidad:hover {
+    transform: scale(1.05);
+}
+
+.habilidad h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Banners */
+.banner-movil p,
+.banner-desktop p {
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
+
+/* Móvil (hasta 767px) */
+@media (max-width: 767px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .intro-box h2 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Tablet y Desktop (768px en adelante) */
+@media (min-width: 768px) {
+    .foto {
+        height: 300px !important;
+    }
+}
+
+/* Desktop (992px en adelante) */
+@media (min-width: 992px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .intro-box {
+        padding: 2rem !important;
+    }
+    
+    .habilidad {
+        min-height: 130px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
