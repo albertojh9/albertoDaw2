@@ -1,0 +1,45 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+}
+
+/* Grid container */
+.contenedor-principal {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 500px;
+    height: 300px;
+    position: relative;
+}
+
+/* Elemento base amarillo */
+.elemento-primario {
+    background-color: #ffeb3b;
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+}
+
+/* Elemento superpuesto naranja */
+.elemento-secundario {
+    background-color: #ff9800;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    z-index: 2;
+}

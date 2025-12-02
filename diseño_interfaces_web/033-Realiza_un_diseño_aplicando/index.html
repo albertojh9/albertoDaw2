@@ -3,163 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Alberto - IES Castelar">
-    <meta name="description" content="Ejercicio Bootstrap con offset, reordenación y display responsive">
-    <meta name="robots" content="index, follow">
-    <title>Ejercicio Bootstrap Offset</title>
-    
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- CSS personalizado -->
+    <title>Ejemplos Bootstrap</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="bg-primary text-white py-4">
-        <div class="container">
-            <h1 class="text-center">Mi Portafolio Web</h1>
-        </div>
-    </header>
-
-    <!-- Sección Principal con OFFSET -->
-    <section class="intro py-5 bg-light">
-        <div class="container">
-            <div class="row">
-                <!-- OFFSET: En tablet offset-2, en desktop offset-3 -->
-                <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
-                    <div class="intro-box bg-white p-4 rounded shadow text-center">
-                        <h2>Bienvenido</h2>
-                        <p>Estudiante de Desarrollo Web</p>
-                    </div>
-                </div>
+    <div class="contenedor">
+        <h1>Ejemplos de Bootstrap</h1>
+        
+        <div class="seccion">
+            <h2>Orden de elementos</h2>
+            <div class="ejemplo">
+                <div class="caja orden-1">A</div>
+                <div class="caja orden-2">B</div>
+                <div class="caja orden-3">C</div>
             </div>
         </div>
-    </section>
 
-    <!-- Sección con REORDENACIÓN -->
-    <section class="about py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Sobre Mí</h2>
-            <div class="row">
-                <!-- REORDENACIÓN: Imagen primera en móvil (order-1), segunda en desktop (order-lg-2) -->
-                <div class="col-12 col-lg-6 order-1 order-lg-2 mb-3">
-                    <div class="foto bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 250px;">
-                        <span>Mi Foto</span>
-                    </div>
-                </div>
-                
-                <!-- Texto segundo en móvil (order-2), primero en desktop (order-lg-1) -->
-                <div class="col-12 col-lg-6 order-2 order-lg-1">
-                    <h3>Alberto</h3>
-                    <p>Estudiante de 2º DAW en IES Castelar</p>
-                    <p>Especializado en desarrollo web con PHP y JavaScript</p>
-                </div>
+        <div class="seccion">
+            <h2>Mostrar/Ocultar elementos</h2>
+            <div class="ejemplo">
+                <div class="caja movil">Solo móvil</div>
+                <div class="caja tablet">Solo tablet</div>
+                <div class="caja escritorio">Solo escritorio</div>
             </div>
         </div>
-    </section>
 
-    <!-- Sección Proyectos con OFFSET -->
-    <section class="proyectos py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">Mis Proyectos</h2>
-            
-            <div class="row mb-3">
-                <!-- OFFSET: offset-1 en tablet -->
-                <div class="col-12 col-md-5 offset-md-1 mb-3">
-                    <div class="card p-3">
-                        <h5>Tienda Online</h5>
-                        <p>E-commerce con carrito de compra</p>
-                        <!-- BLOCK/NONE: Botón visible solo en móvil -->
-                        <button class="btn btn-primary d-block d-lg-none">Ver +</button>
-                        <!-- BLOCK/NONE: Botón visible solo en desktop -->
-                        <button class="btn btn-success d-none d-lg-block">Más Información</button>
-                    </div>
-                </div>
-                
-                <!-- Sin offset -->
-                <div class="col-12 col-md-5 mb-3">
-                    <div class="card p-3">
-                        <h5>Blog Personal</h5>
-                        <p>Sistema de gestión de artículos</p>
-                        <button class="btn btn-primary d-block d-lg-none">Ver +</button>
-                        <button class="btn btn-success d-none d-lg-block">Más Información</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <!-- OFFSET: offset-2 en tablet, offset-4 en desktop -->
-                <div class="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4">
-                    <div class="card p-3">
-                        <h5>Portfolio Web</h5>
-                        <p>Página personal responsive</p>
-                        <button class="btn btn-primary d-block d-lg-none">Ver +</button>
-                        <button class="btn btn-success d-none d-lg-block">Más Información</button>
-                    </div>
-                </div>
+        <div class="seccion">
+            <h2>Tamaños de pantalla</h2>
+            <div class="info">
+                <p>XS: menos de 576px</p>
+                <p>SM: 576px a 768px</p>
+                <p>MD: 768px a 992px</p>
+                <p>LG: 992px a 1200px</p>
+                <p>XL: más de 1200px</p>
             </div>
         </div>
-    </section>
-
-    <!-- Sección Habilidades con REORDENACIÓN -->
-    <section class="habilidades py-5">
-        <div class="container">
-            <h2 class="text-center mb-4">Habilidades</h2>
-            <div class="row">
-                <!-- orden 1 en móvil, orden 3 en desktop -->
-                <div class="col-12 col-md-4 order-1 order-lg-3 mb-3">
-                    <div class="habilidad bg-info text-white p-3 rounded text-center">
-                        <h4>Bases de Datos</h4>
-                        <p>MySQL, SQL</p>
-                    </div>
-                </div>
-                
-                <!-- orden 2 en móvil, orden 1 en desktop -->
-                <div class="col-12 col-md-4 order-2 order-lg-1 mb-3">
-                    <div class="habilidad bg-primary text-white p-3 rounded text-center">
-                        <h4>HTML y CSS</h4>
-                        <p>Diseño Web</p>
-                    </div>
-                </div>
-                
-                <!-- orden 3 en móvil, orden 2 en desktop -->
-                <div class="col-12 col-md-4 order-3 order-lg-2 mb-3">
-                    <div class="habilidad bg-success text-white p-3 rounded text-center">
-                        <h4>JavaScript</h4>
-                        <p>Programación</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Banner BLOCK/NONE - Solo móvil -->
-    <section class="banner-movil d-block d-md-none bg-warning py-2">
-        <div class="container">
-            <p class="text-center mb-0">📱 Versión Móvil</p>
-        </div>
-    </section>
-
-    <!-- Banner BLOCK/NONE - Solo desktop -->
-    <section class="banner-desktop d-none d-md-block bg-success py-2">
-        <div class="container">
-            <p class="text-center mb-0 text-white">💻 Versión Desktop</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-3 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6 offset-md-3 text-center">
-                    <p class="mb-0">&copy; 2025 Alberto - IES Castelar</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
 </body>
 </html>

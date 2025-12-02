@@ -1,127 +1,131 @@
-/* ===================================
-   ESTILOS BÁSICOS
-   Alberto - IES Castelar
-   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
+    background-color: #f0f0f0;
+    padding: 20px;
 }
 
-/* Header */
-header {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.contenedor {
+    background-color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 10px;
 }
 
-header h1 {
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
     font-size: 2rem;
 }
 
-/* Sección Intro */
-.intro-box {
-    transition: transform 0.3s;
+h2 {
+    color: #666;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
 }
 
-.intro-box:hover {
-    transform: scale(1.05);
+.seccion {
+    margin-bottom: 40px;
 }
 
-.intro-box h2 {
-    color: #0d6efd;
-    margin-bottom: 1rem;
+.ejemplo {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
-/* Sección Sobre Mí */
-.about h3 {
-    color: #0d6efd;
-}
-
-.foto {
-    border-radius: 8px;
-}
-
-/* Sección Proyectos */
-.proyectos .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    transition: all 0.3s;
-}
-
-.proyectos .card:hover {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-}
-
-.proyectos h5 {
-    color: #0d6efd;
-}
-
-.proyectos .btn {
-    width: 100%;
-}
-
-/* Sección Habilidades */
-.habilidad {
-    transition: transform 0.3s;
-    cursor: pointer;
-}
-
-.habilidad:hover {
-    transform: scale(1.05);
-}
-
-.habilidad h4 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Banners */
-.banner-movil p,
-.banner-desktop p {
+.caja {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
     font-weight: bold;
+    min-width: 120px;
 }
 
-/* Footer */
-footer {
-    margin-top: auto;
+.orden-1 {
+    background-color: #dc3545;
+    order: 1;
 }
 
-/* ===================================
-   RESPONSIVE
-   =================================== */
+.orden-2 {
+    background-color: #28a745;
+    order: 2;
+}
 
-/* Móvil (hasta 767px) */
-@media (max-width: 767px) {
-    header h1 {
+.orden-3 {
+    background-color: #ffc107;
+    color: #333;
+    order: 3;
+}
+
+.movil {
+    background-color: #17a2b8;
+    display: block;
+}
+
+.tablet {
+    background-color: #6f42c1;
+    display: none;
+}
+
+.escritorio {
+    background-color: #fd7e14;
+    display: none;
+}
+
+.info {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.info p {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Media queries básicas */
+@media (min-width: 576px) {
+    .movil {
+        display: none;
+    }
+    .tablet {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .tablet {
+        display: none;
+    }
+    .escritorio {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .contenedor {
+        padding: 15px;
+    }
+    
+    h1 {
         font-size: 1.5rem;
     }
     
-    .intro-box h2 {
-        font-size: 1.3rem;
-    }
-}
-
-/* Tablet y Desktop (768px en adelante) */
-@media (min-width: 768px) {
-    .foto {
-        height: 300px !important;
-    }
-}
-
-/* Desktop (992px en adelante) */
-@media (min-width: 992px) {
-    header h1 {
-        font-size: 2.5rem;
-    }
-    
-    .intro-box {
-        padding: 2rem !important;
-    }
-    
-    .habilidad {
-        min-height: 130px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+    .caja {
+        min-width: 100px;
+        padding: 15px;
     }
 }

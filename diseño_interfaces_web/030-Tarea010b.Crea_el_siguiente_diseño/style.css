@@ -1,0 +1,98 @@
+/* Configuración global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+/* Grid container con flexbox approach */
+#contenedor {
+    display: grid;
+    grid-template-areas:
+        "item1 item2 item3"
+        "item1 item5 item3"
+        "item4 item5 item6"
+        "item4 item5 item9"
+        "item7 item8 item9"
+        "item7 . item9";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(6, 80px);
+    gap: 8px;
+    width: 100%;
+    max-width: 600px;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Estilos base compartidos */
+#contenedor > div {
+    background: linear-gradient(135deg, #666666, #999999);
+    color: #ffffff;
+    font-size: 1.8em;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #333333;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Asignación de áreas específicas */
+#uno { grid-area: item1; }
+#dos { grid-area: item2; }
+#tres { grid-area: item3; }
+#cuatro { grid-area: item4; }
+#cinco { grid-area: item5; }
+#seis { grid-area: item6; }
+#siete { grid-area: item7; }
+#ocho { grid-area: item8; }
+#nueve { grid-area: item9; }
+
+/* Responsive design para tablets */
+@media screen and (max-width: 768px) {
+    #contenedor {
+        grid-template-areas:
+            "item1"
+            "item2"
+            "item3"
+            "item4"
+            "item5"
+            "item6"
+            "item7"
+            "item8"
+            "item9";
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, 70px);
+        max-width: 350px;
+    }
+    
+    #contenedor > div {
+        font-size: 1.4em;
+    }
+}
+
+/* Responsive para móviles pequeños */
+@media screen and (max-width: 480px) {
+    #contenedor {
+        padding: 15px;
+        grid-template-rows: repeat(9, 60px);
+        gap: 6px;
+    }
+    
+    #contenedor > div {
+        font-size: 1.2em;
+        border-width: 1px;
+    }
+}
