@@ -1,0 +1,2 @@
+https://editor.swagger.io/
+curl -X POST -H "Content-Type: application/json" -d "{\"bajas\": 3, \"titulo\": \"\"}" http://localhost/armagedon/

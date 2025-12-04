@@ -2,33 +2,67 @@ openapi: 3.0.4
 info:
   title: API de Armagedón
   version: 1.0.0
-  contact:
+  contact: 
     name: Desarrollos Apocalípticos, S.A.
     email: programadores_daw@apocalipsis.com
-  
-servers: 
+    
+servers:
   - url: https://www.telearmagedon.com/api/v1
     description: Servidor de producción
-  - url: https://www.desarrollo.telearmagedon.com/api/v1
-    description: Servidor de desarrollo
-  
-paths: 
+  - url: https://desarrollo.telearmagedon.com/api/v1
+    description: Servidor de Desarrollo
+    
+paths:
   /armagedon/:
     get:
-      summary: Obtener la lista completa de Armagedones.
-      responses: 
+      summary: Obtener la lista completa de Armagedones
+      responses:
         '200':
           description: Lista obtenida correctamente.
-          content: 
+          content:
             application/json:
               schema:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    id: 
-                      type: integer 
-                      description: Identificador de identidad
-                    título:
-                      type: string
-                      description: Título de la entidad
+                  $ref: "#/components/schemas/Armagedon"
+    post:
+      summary: Inserta un nuevo recurso Armagedón
+      requestBody:
+        content:
+          application/json:
+              schema:
+                $ref: "#/components/schemas/Armagedon"
+      responses:
+        '201':
+          description: Recurso creado
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url: 
+                    type: string
+                    description: url del recurso creado
+                    example: "http://localhost/armagedon/?id=42"
+        '400':
+          description: Parámetros inválidos
+        '500':
+          description: Error del servidor
+      
+  
+components:
+  schemas:
+    Armagedon:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Identificador de la entidad
+        bajas:
+          type: integer
+          minimum: 0
+          description: Número de bajas esperadas
+        titulo:
+          type: string
+          required: true
+          description: Título de la entidad
